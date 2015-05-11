@@ -1,0 +1,27 @@
+# Setup local git repo
+$ exec git init
+$ exec git add .
+$ exec git commit -m commit
+
+# Setup remote git repo in target directory
+$ exec git init --bare target/remote
+$ exec git remote add origin target/remote
+$ exec git push origin master
+$ exec git branch -u origin/master
+
+> release with-defaults
+
+# Make sure scripted tests ran
+$ exists target/scripted-ran
+
+# Make sure publishSigned ran
+> contains target/publish-version 1.2.3
+
+# Make sure bintrayRelease ran
+> contains target/bintray-release-version 1.2.3
+
+# Make sure the version was updated
+> contains version.sbt 1.2.4-SNAPSHOT
+
+# Make sure the git repo was tagged
+$ exec git show 1.2.3
