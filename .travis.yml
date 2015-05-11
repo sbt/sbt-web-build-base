@@ -6,6 +6,6 @@ cache:
     - $HOME/.ivy2/cache
 before_cache:
   # Delete the cached artifacts
-  - rm -rf $HOME/.ivy2/cache/scala_*/sbt_*/com.github.gseitz
+  - rm -rf $HOME/.ivy2/cache/scala_*/sbt_*/com.typesafe.sbt/sbt-web-build-base
   # Delete all ivydata files
   - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
