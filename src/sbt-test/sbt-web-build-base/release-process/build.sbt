@@ -23,3 +23,6 @@ bintrayRelease := {
 
 // Pass the file for the scripted test to write to so that we can check that it ran
 scriptedLaunchOpts += s"-Dscripted-file=${target.value / "scripted-ran"}"
+
+// Ensure bintray credentials exist
+credentials := Seq(Credentials("Bintray API Realm", "api.bintray.com", "sbt", "password"))
