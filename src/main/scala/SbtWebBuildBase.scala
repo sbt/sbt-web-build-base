@@ -26,8 +26,11 @@ object SbtWebBase extends AutoPlugin {
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    ScriptedPlugin.scriptedLaunchOpts <+= version apply { v => s"-Dproject.version=$v" },
-    ScriptedPlugin.scriptedLaunchOpts += "-XX:MaxPermSize=256m",
+    crossSbtVersions := Seq("0.13.16", "1.0.0-RC3"),
+
+    ScriptedPlugin.scriptedLaunchOpts ++= Seq(
+      "-XX:MaxPermSize=256m", s"-Dproject.version=${version.value}"
+    ),
 
     // Publish settings
     publishMavenStyle := false,

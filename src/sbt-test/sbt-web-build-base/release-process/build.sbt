@@ -25,3 +25,6 @@ bintrayRelease := {
 scriptedLaunchOpts += s"-Dscripted-file=${target.value / "scripted-ran"}"
 
 bintrayCredentialsFile := baseDirectory.value / "bintray.credentials"
+
+// prevent failed build due to auto-generated project/build.properties
+releaseIgnoreUntrackedFiles := true
