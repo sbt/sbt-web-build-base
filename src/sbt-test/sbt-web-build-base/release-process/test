@@ -14,11 +14,13 @@ $ exec git branch -u origin/master
 
 > release with-defaults
 
-# Make sure scripted tests ran
-$ exists target/scripted-ran
+# Make sure scripted tests ran against both sbt versions
+$ exists target/scripted-ran-0.13
+$ exists target/scripted-ran-1.0
 
-# Make sure publishSigned ran
-> contains target/publish-version 1.2.3
+# Make sure publishSigned ran against both sbt versions
+> contains target/publish-version-0.13 1.2.3
+> contains target/publish-version-1.0 1.2.3
 
 # Make sure bintrayRelease ran
 > contains target/bintray-release-version 1.2.3

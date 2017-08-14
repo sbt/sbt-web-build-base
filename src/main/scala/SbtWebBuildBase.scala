@@ -26,10 +26,11 @@ object SbtWebBase extends AutoPlugin {
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    crossSbtVersions := Seq("0.13.16", "1.0.0-RC3"),
+    crossSbtVersions := Seq("0.13.16", "1.0.0"),
 
     ScriptedPlugin.scriptedLaunchOpts ++= Seq(
-      "-XX:MaxPermSize=256m", s"-Dproject.version=${version.value}"
+      "-XX:MaxMetaspaceSize=256m",
+      s"-Dproject.version=${version.value}"
     ),
 
     // Publish settings
@@ -40,7 +41,6 @@ object SbtWebBase extends AutoPlugin {
     bintrayReleaseOnPublish := false,
 
     // Release settings
-    releasePublishArtifactsAction := PgpKeys.publishSigned.value,
     releaseTagName := (version in ThisBuild).value,
     releaseProcess := {
       import ReleaseTransformations._
@@ -48,12 +48,12 @@ object SbtWebBase extends AutoPlugin {
       Seq[ReleaseStep](
         checkSnapshotDependencies,
         inquireVersions,
-        runTest,
-        releaseStepInputTask(ScriptedPlugin.scripted in thisProjectRef.value),
+        releaseStepCommandAndRemaining("^test"),
+        releaseStepCommandAndRemaining("^scripted"),
         setReleaseVersion,
         commitReleaseVersion,
         tagRelease,
-        publishArtifacts,
+        releaseStepCommandAndRemaining("^publishSigned"),
         releaseStepTask(bintrayRelease in thisProjectRef.value),
         setNextVersion,
         commitNextVersion,

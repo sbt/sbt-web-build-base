@@ -1,11 +1,6 @@
 language: scala
 
-env:
-  matrix:
-    - TRAVIS_SBT_VERSION=0.13.16
-    - TRAVIS_SBT_VERSION=1.0.0-RC3
-
-script: sbt ^^$TRAVIS_SBT_VERSION validate
+script: sbt validate
 
 sudo: false
 
