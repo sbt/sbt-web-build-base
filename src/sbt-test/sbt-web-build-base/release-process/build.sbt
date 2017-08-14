@@ -10,7 +10,7 @@ InputKey[Unit]("contains") := {
 }
 
 PgpKeys.publishSigned := {
-  IO.write(target.value / "publish-version", version.value)
+  IO.write(target.value / s"publish-version-${(sbtBinaryVersion in pluginCrossBuild).value}", version.value)
 }
 
 publish := {
@@ -22,6 +22,9 @@ bintrayRelease := {
 }
 
 // Pass the file for the scripted test to write to so that we can check that it ran
-scriptedLaunchOpts += s"-Dscripted-file=${target.value / "scripted-ran"}"
+scriptedLaunchOpts += s"-Dscripted-file=${target.value / s"scripted-ran-${(sbtBinaryVersion in pluginCrossBuild).value}"}"
 
 bintrayCredentialsFile := baseDirectory.value / "bintray.credentials"
+
+// prevent failed build due to auto-generated project/build.properties
+releaseIgnoreUntrackedFiles := true
