@@ -4,16 +4,16 @@ This is an sbt plugin that sbt-web plugins can use to get their configuration.
 
 ## Usage
 
-Ensure that `project/build.properties` is configured for sbt 0.13.8:
+Ensure that `project/build.properties` is configured for sbt 0.13.16:
 
 ```
-sbt.version=0.13.8
+sbt.version=0.13.16
 ```
 
 Add the following to `project/plugins.sbt`:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.0.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.1.0")
 ```
 
 Now create a `version.sbt` with the version declared in it, for example:
@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
 )
 ```
 
-Generally, no other settings should be needed, all required settings, such as `organization`, scripted configuration, release and publishing configuration are provided by `sbt-web-build-base`.
+Generally, no other settings should be needed, all required settings, such as cross building, `organization`, scripted configuration, release and publishing configuration are provided by `sbt-web-build-base`.
 
 ## Utilities
 
