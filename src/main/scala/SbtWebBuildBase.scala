@@ -13,9 +13,20 @@ object SbtWebBase extends AutoPlugin {
   override def trigger = allRequirements
   override def requires = SbtPgp && ReleasePlugin && BintrayPlugin
 
+  /**
+   * Work around for https://github.com/sbt/sbt/issues/3393.
+   * Public method so that other sbt web plugins can use it.
+   */
+  def addSbtPlugin(dependency: ModuleID): Setting[Seq[ModuleID]] =
+  	libraryDependencies += {
+      val sbtV = (sbtBinaryVersion in pluginCrossBuild).value
+      val scalaV = (scalaBinaryVersion in update).value
+      Defaults.sbtPluginExtra(dependency, sbtV, scalaV)
+  	}
+
   object autoImport {
-    def addSbtJsEngine(version: String): Setting[_] = addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % version)
-    def addSbtWeb(version: String): Setting[_] = addSbtPlugin("com.typesafe.sbt" % "sbt-web" % version)
+    def addSbtJsEngine(version: String): Setting[_] = SbtWebBase.addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % version)
+    def addSbtWeb(version: String): Setting[_] = SbtWebBase.addSbtPlugin("com.typesafe.sbt" % "sbt-web" % version)
   }
 
   override def projectSettings = ScriptedPlugin.scriptedSettings ++ Seq(
