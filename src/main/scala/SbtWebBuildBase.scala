@@ -18,11 +18,11 @@ object SbtWebBase extends AutoPlugin {
    * Public method so that other sbt web plugins can use it.
    */
   def addSbtPlugin(dependency: ModuleID): Setting[Seq[ModuleID]] =
-  	libraryDependencies += {
+    libraryDependencies += {
       val sbtV = (sbtBinaryVersion in pluginCrossBuild).value
       val scalaV = (scalaBinaryVersion in update).value
       Defaults.sbtPluginExtra(dependency, sbtV, scalaV)
-  	}
+    }
 
   object autoImport {
     def addSbtJsEngine(version: String): Setting[_] = SbtWebBase.addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % version)
