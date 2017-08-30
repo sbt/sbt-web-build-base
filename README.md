@@ -2,18 +2,20 @@
 
 This is an sbt plugin that sbt-web plugins can use to get their configuration.
 
+[![Build Status](https://travis-ci.org/sbt/sbt-web-build-base.svg?branch=master)](https://travis-ci.org/sbt/sbt-web-build-base) [![Download](https://api.bintray.com/packages/sbt-web/sbt-plugin-releases/sbt-web-build-base/images/download.svg)](https://bintray.com/sbt-web/sbt-plugin-releases/sbt-web-build-base/_latestVersion)
+
 ## Usage
 
-Ensure that `project/build.properties` is configured for sbt 0.13.16:
+Ensure that `project/build.properties` is configured for sbt minimum version of 1.0.1:
 
 ```
-sbt.version=0.13.16
+sbt.version=1.0.1
 ```
 
 Add the following to `project/plugins.sbt`:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.1.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.2.0")
 ```
 
 Now create a `version.sbt` with the version declared in it, for example:
