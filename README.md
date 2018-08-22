@@ -6,16 +6,16 @@ This is an sbt plugin that sbt-web plugins can use to get their configuration.
 
 ## Usage
 
-Ensure that `project/build.properties` is configured for sbt minimum version of 1.0.1:
+Ensure that `project/build.properties` is configured for sbt minimum version of 1.2.1:
 
 ```
-sbt.version=1.0.1
+sbt.version=1.2.1
 ```
 
 Add the following to `project/plugins.sbt`:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.2.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.3.0")
 ```
 
 Now create a `version.sbt` with the version declared in it, for example:
@@ -24,10 +24,11 @@ Now create a `version.sbt` with the version declared in it, for example:
 version := "1.0.0-SNAPSHOT"
 ```
 
-And finally, create a `build.sbt` that declares the `name`, `description` and `libraryDependencies`.  For example:
+And finally, create a `build.sbt` that declares the `name`, `description` and `libraryDependencies` and enables the plugin.  For example:
 
 ```scala
 lazy val `sbt-project-name` = project in file(".")
+enablePlugins(SbtWebBase)
 
 description := "My project description"
 
