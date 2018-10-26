@@ -2,15 +2,16 @@ package com.typesafe.sbt.web.build
 
 import bintray.BintrayPlugin
 import bintray.BintrayPlugin.autoImport._
-import com.typesafe.sbt.SbtPgp
+import io.crashbox.gpg.SbtGpg
 import sbt.Keys._
 import sbt.{Def, _}
 import sbtrelease.ReleasePlugin
 import sbtrelease.ReleasePlugin.autoImport._
 
 object SbtWebBase extends AutoPlugin {
-  override def trigger = allRequirements
-  override def requires = SbtPgp && ReleasePlugin && BintrayPlugin
+  override def trigger = noTrigger
+
+  override def requires = SbtGpg && ReleasePlugin && BintrayPlugin && ScriptedPlugin
 
   @deprecated("No longer needed since sbt 1.0.1 has been released.", "1.2.0")
   def addSbtPlugin(dependency: ModuleID): Setting[Seq[ModuleID]] = sbt.addSbtPlugin(dependency)
@@ -39,7 +40,7 @@ object SbtWebBase extends AutoPlugin {
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    crossSbtVersions := Seq("0.13.16", "1.0.1"),
+    crossSbtVersions := Seq("0.13.17", "1.2.1"),
 
     ScriptedPlugin.autoImport.scriptedLaunchOpts ++= Seq(
       "-XX:MaxMetaspaceSize=256m",
@@ -66,7 +67,7 @@ object SbtWebBase extends AutoPlugin {
         setReleaseVersion,
         commitReleaseVersion,
         tagRelease,
-        releaseStepCommandAndRemaining("^publishSigned"),
+        releaseStepCommandAndRemaining("^publish"),
         releaseStepTask(bintrayRelease in thisProjectRef.value),
         setNextVersion,
         commitNextVersion,

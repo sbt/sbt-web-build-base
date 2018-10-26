@@ -1,4 +1,5 @@
 lazy val `release-process` = project in file(".")
+enablePlugins(SbtWebBase)
 
 InputKey[Unit]("contains") := {
   val args = Def.spaceDelimited().parsed
@@ -9,12 +10,8 @@ InputKey[Unit]("contains") := {
   }
 }
 
-PgpKeys.publishSigned := {
-  IO.write(target.value / s"publish-version-${(sbtBinaryVersion in pluginCrossBuild).value}", version.value)
-}
-
 publish := {
-  throw sys.error("Publish should not have been invoked")
+  IO.write(target.value / s"publish-version-${(sbtBinaryVersion in pluginCrossBuild).value}", version.value)
 }
 
 bintrayRelease := {
