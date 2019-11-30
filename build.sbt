@@ -10,6 +10,6 @@ addSbtPlugin("io.crashbox" % "sbt-gpg" % sbtGpgVersion)
 addSbtPlugin("org.foundweekends" % "sbt-bintray" % sbtBintrayVersion)
 libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % scriptedPluginVersion
 
-crossSbtVersions := Seq("1.2.1")
+crossSbtVersions := Seq("1.3.4")
 
 addCommandAlias("validate", ";clean;test;scripted")

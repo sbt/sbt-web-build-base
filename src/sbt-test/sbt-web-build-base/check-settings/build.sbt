@@ -17,5 +17,5 @@ TaskKey[Unit]("testSettings") := {
   assertEquals(releaseVersion.value("1.0"), "1.0")
 }
 
-addSbtJsEngine("1.2.2")
-addSbtWeb("1.4.2")
+addSbtJsEngine("1.2.3")
+addSbtWeb("1.4.4")
