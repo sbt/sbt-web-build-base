@@ -40,7 +40,7 @@ object SbtWebBase extends AutoPlugin {
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    crossSbtVersions := Seq("0.13.17", "1.2.6"),
+    crossSbtVersions := Seq("0.13.18", "1.3.4"),
 
     ScriptedPlugin.autoImport.scriptedLaunchOpts ++= Seq(
       "-XX:MaxMetaspaceSize=256m",
