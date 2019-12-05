@@ -15,7 +15,7 @@ sbt.version=1.2.1
 Add the following to `project/plugins.sbt`:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.3.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.2.3")
 ```
 
 Now create a `version.sbt` with the version declared in it, for example:

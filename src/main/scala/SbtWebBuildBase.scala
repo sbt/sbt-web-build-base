@@ -40,7 +40,9 @@ object SbtWebBase extends AutoPlugin {
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    crossSbtVersions := Seq("0.13.18", "1.3.4"),
+    // Do not switch to sbt 1.3.x (or greater) as long as Play is build with sbt 1.2.x
+    // See https://github.com/sbt/sbt/issues/5049
+    crossSbtVersions := Seq("0.13.18", "1.2.8"),
 
     ScriptedPlugin.autoImport.scriptedLaunchOpts ++= Seq(
       "-XX:MaxMetaspaceSize=256m",
