@@ -14,4 +14,4 @@ libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % scriptedPluginVers
 // See https://github.com/sbt/sbt/issues/5049
 crossSbtVersions := Seq("1.2.8")
 
-addCommandAlias("validate", ";clean;test;scripted")
+addCommandAlias("validate", ";clean;test;^scripted")

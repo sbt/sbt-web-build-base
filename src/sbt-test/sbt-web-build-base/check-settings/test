@@ -1,7 +1,10 @@
 > ^update
 
 # Make sure resolution was done for both sbt 0.13 and sbt 1.0
-$ exists target/scala-2.10/sbt-0.13/update/update_cache_2.10/output
-$ exists target/scala-2.12/sbt-1.0/update/update_cache_2.12/output
+$ exists target/scala-2.10/sbt-0.13/resolution-cache/com.typesafe.sbt/check-settings/scala_2.10/sbt_0.13/0.1-SNAPSHOT/resolved.xml.xml
+$ exists target/scala-2.12/sbt-1.0/resolution-cache/com.typesafe.sbt/check-settings/scala_2.12/sbt_1.0/0.1-SNAPSHOT/resolved.xml.xml
+# When switching to coursier:
+#$ exists target/scala-2.10/sbt-0.13/update/update_cache_2.10/output
+#$ exists target/scala-2.12/sbt-1.0/update/update_cache_2.12/output
 
 > testSettings
