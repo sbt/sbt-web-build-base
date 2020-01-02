@@ -6,8 +6,9 @@ enablePlugins(SbtWebBase)
 description := "Base build plugin for all sbt-web plugins"
 
 addSbtPlugin("com.github.gseitz" % "sbt-release" % sbtReleaseVersion)
-addSbtPlugin("io.crashbox" % "sbt-gpg" % sbtGpgVersion)
+addSbtPlugin("com.jsuereth"      % "sbt-pgp"     % sbtPgpVersion)
 addSbtPlugin("org.foundweekends" % "sbt-bintray" % sbtBintrayVersion)
+
 libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % scriptedPluginVersion
 
 // Do not switch to sbt 1.3.x (or greater) as long as Play is build with sbt 1.2.x

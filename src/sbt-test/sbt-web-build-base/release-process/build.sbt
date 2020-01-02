@@ -10,7 +10,7 @@ InputKey[Unit]("contains") := {
   }
 }
 
-publish := {
+PgpKeys.publishSigned := {
   IO.write(target.value / s"publish-version-${(sbtBinaryVersion in pluginCrossBuild).value}", version.value)
 }
 

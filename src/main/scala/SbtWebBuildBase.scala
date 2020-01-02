@@ -2,7 +2,7 @@ package com.typesafe.sbt.web.build
 
 import bintray.BintrayPlugin
 import bintray.BintrayPlugin.autoImport._
-import io.crashbox.gpg.SbtGpg
+import com.jsuereth.sbtpgp.SbtPgp
 import sbt.Keys._
 import sbt.{Def, _}
 import sbtrelease.ReleasePlugin
@@ -11,7 +11,7 @@ import sbtrelease.ReleasePlugin.autoImport._
 object SbtWebBase extends AutoPlugin {
   override def trigger = noTrigger
 
-  override def requires = SbtGpg && ReleasePlugin && BintrayPlugin && ScriptedPlugin
+  override def requires = SbtPgp && ReleasePlugin && BintrayPlugin && ScriptedPlugin
 
   @deprecated("No longer needed since sbt 1.0.1 has been released.", "1.2.0")
   def addSbtPlugin(dependency: ModuleID): Setting[Seq[ModuleID]] = sbt.addSbtPlugin(dependency)
@@ -69,7 +69,7 @@ object SbtWebBase extends AutoPlugin {
         setReleaseVersion,
         commitReleaseVersion,
         tagRelease,
-        releaseStepCommandAndRemaining("^publish"),
+        releaseStepCommandAndRemaining("^publishSigned"),
         releaseStepTask(bintrayRelease in thisProjectRef.value),
         setNextVersion,
         commitNextVersion,
