@@ -2,7 +2,7 @@
 
 This is a sbt plugin that sbt-web plugins can use to get their configuration.
 
-[![Build Status](https://travis-ci.org/sbt/sbt-web-build-base.svg?branch=master)](https://travis-ci.org/sbt/sbt-web-build-base) [![Download](https://api.bintray.com/packages/sbt-web/sbt-plugin-releases/sbt-web-build-base/images/download.svg)](https://bintray.com/sbt-web/sbt-plugin-releases/sbt-web-build-base/_latestVersion)
+[![Build Status](https://github.com/sbt/sbt-web-build-base/actions/workflows/build-test.yml/badge.svg)](https://github.com/sbt/sbt-web-build-base/actions/workflows/build-test.yml)
 
 ## Usage
 
