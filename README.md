@@ -1,22 +1,24 @@
 # sbt-web build base
 
-This is an sbt plugin that sbt-web plugins can use to get their configuration.
+This is a sbt plugin that sbt-web plugins can use to get their configuration.
 
 [![Build Status](https://travis-ci.org/sbt/sbt-web-build-base.svg?branch=master)](https://travis-ci.org/sbt/sbt-web-build-base) [![Download](https://api.bintray.com/packages/sbt-web/sbt-plugin-releases/sbt-web-build-base/images/download.svg)](https://bintray.com/sbt-web/sbt-plugin-releases/sbt-web-build-base/_latestVersion)
 
 ## Usage
 
-Ensure that `project/build.properties` is configured for sbt minimum version of 1.2.1:
+Ensure that `project/build.properties` is configured for sbt minimum version of 1.9.0:
 
 ```
-sbt.version=1.2.1
+sbt.version=1.9.0
 ```
 
 Add the following to `project/plugins.sbt`:
 
 ```scala
-addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "1.2.3")
+addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % "<latest-version>")
 ```
+
+where `<latest-version>` is the [latest version available](https://github.com/sbt/sbt-web-build-base/tags).
 
 Now create a `version.sbt` with the version declared in it, for example:
 
@@ -33,11 +35,11 @@ enablePlugins(SbtWebBase)
 description := "My project description"
 
 libraryDependencies ++= Seq(
-  "org.webjars" % "my-web-jar" % "1.2.3
+  "org.webjars" % "my-web-jar" % "1.2.3"
 )
 ```
 
-Generally, no other settings should be needed, all required settings, such as cross building, `organization`, scripted configuration, release and publishing configuration are provided by `sbt-web-build-base`.
+Generally, no other settings should be needed, all required settings, such as cross building, `organization` and scripted configuration are provided by `sbt-web-build-base`.
 
 ## Utilities
 

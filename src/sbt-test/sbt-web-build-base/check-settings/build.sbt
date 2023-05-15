@@ -13,8 +13,6 @@ TaskKey[Unit]("testSettings") := {
   assertEquals(homepage.value, Some(url("https://github.com/sbt/check-settings")))
   assertEquals(licenses.value.size, 1)
   assertEquals(licenses.value.head._1, "Apache-2.0")
-  assertEquals(bintrayPackage.value, "check-settings")
-  assertEquals(releaseVersion.value("1.0"), "1.0")
 }
 
 addSbtJsEngine("1.2.3")

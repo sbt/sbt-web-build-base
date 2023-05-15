@@ -1,17 +1,12 @@
 package com.typesafe.sbt.web.build
 
-import bintray.BintrayPlugin
-import bintray.BintrayPlugin.autoImport._
-import io.crashbox.gpg.SbtGpg
 import sbt.Keys._
 import sbt.{Def, _}
-import sbtrelease.ReleasePlugin
-import sbtrelease.ReleasePlugin.autoImport._
 
 object SbtWebBase extends AutoPlugin {
   override def trigger = noTrigger
 
-  override def requires = SbtGpg && ReleasePlugin && BintrayPlugin && ScriptedPlugin
+  override def requires = ScriptedPlugin
 
   @deprecated("No longer needed since sbt 1.0.1 has been released.", "1.2.0")
   def addSbtPlugin(dependency: ModuleID): Setting[Seq[ModuleID]] = sbt.addSbtPlugin(dependency)
@@ -40,43 +35,12 @@ object SbtWebBase extends AutoPlugin {
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    // Do not switch to sbt 1.3.x (or greater) as long as Play is build with sbt 1.2.x
-    // See https://github.com/sbt/sbt/issues/5049
-    crossSbtVersions := Seq("0.13.18", "1.2.8"),
+    crossSbtVersions := Seq("1.9.0-RC3"),
 
     ScriptedPlugin.autoImport.scriptedLaunchOpts ++= Seq(
       "-XX:MaxMetaspaceSize=256m",
       s"-Dproject.version=${version.value}"
     ),
-
-    // Publish settings
-    publishMavenStyle := false,
-    bintrayOrganization := Some("sbt-web"),
-    bintrayRepository := "sbt-plugin-releases",
-    bintrayPackage := name.value,
-    bintrayReleaseOnPublish := false,
-
-    // Release settings
-    releaseTagName := (version in ThisBuild).value,
-    releaseProcess := {
-      import ReleaseTransformations._
-
-      Seq[ReleaseStep](
-        checkSnapshotDependencies,
-        inquireVersions,
-        releaseStepCommandAndRemaining("^test"),
-        releaseStepCommandAndRemaining("^scripted"),
-        setReleaseVersion,
-        commitReleaseVersion,
-        tagRelease,
-        releaseStepCommandAndRemaining("^publish"),
-        releaseStepTask(bintrayRelease in thisProjectRef.value),
-        setNextVersion,
-        commitNextVersion,
-        pushChanges
-      )
-    }
-
   )
 
 }
