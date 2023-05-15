@@ -1,8 +1,5 @@
 lazy val `check-settings` = project in file(".")
 enablePlugins(SbtWebBase)
-
-version := "0.1-SNAPSHOT"
-
 def assertEquals[T](t1: T, t2: T): Unit = {
   if (t1 != t2) {
     throw new AssertionError(s"$t1 does not equal $t2")
