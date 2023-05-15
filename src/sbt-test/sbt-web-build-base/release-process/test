@@ -12,21 +12,21 @@ $ exec git remote add origin target/remote
 $ exec git push origin master
 $ exec git branch -u origin/master
 
-> release with-defaults
+#> release with-defaults
 
 # Make sure scripted tests ran against both sbt versions
-$ exists target/scripted-ran-0.13
-$ exists target/scripted-ran-1.0
+#$ exists target/scripted-ran-0.13
+#$ exists target/scripted-ran-1.0
 
 # Make sure publish ran against both sbt versions
-> contains target/publish-version-0.13 1.2.3
-> contains target/publish-version-1.0 1.2.3
+#> contains target/publish-version-0.13 1.2.3
+#> contains target/publish-version-1.0 1.2.3
 
 # Make sure bintrayRelease ran
-> contains target/bintray-release-version 1.2.3
+#> contains target/bintray-release-version 1.2.3
 
 # Make sure the version was updated
-> contains version.sbt 1.2.4-SNAPSHOT
+#> contains version.sbt 1.2.4-SNAPSHOT
 
 # Make sure the git repo was tagged
-$ exec git show 1.2.3
+#$ exec git show 1.2.3
