@@ -29,7 +29,7 @@ object SbtWebBase extends AutoPlugin {
 
   override def projectSettings = Seq(
     // General settings
-    organization := "com.typesafe.sbt",
+    organization := "com.github.sbt",
     homepage := Some(url(s"https://github.com/sbt/${name.value}")),
     licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")),
     sbtPlugin := true,

@@ -1,1 +1,1 @@
-addSbtPlugin("com.typesafe.sbt" % "sbt-web-build-base" % sys.props("project.version"))
+addSbtPlugin("com.github.sbt" % "sbt-web-build-base" % sys.props("project.version"))
