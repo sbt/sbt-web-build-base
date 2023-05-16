@@ -13,4 +13,4 @@ TaskKey[Unit]("testSettings") := {
 }
 
 addSbtJsEngine("1.2.3")
-addSbtWeb("1.4.4")
+addSbtWeb("1.5.0-M1")
