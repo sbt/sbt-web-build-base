@@ -8,9 +8,6 @@ object SbtWebBase extends AutoPlugin {
 
   override def requires = ScriptedPlugin
 
-  @deprecated("No longer needed since sbt 1.0.1 has been released.", "1.2.0")
-  def addSbtPlugin(dependency: ModuleID): Setting[Seq[ModuleID]] = sbt.addSbtPlugin(dependency)
-
   object autoImport {
     def addSbtJsEngine(version: String): Setting[_] = sbt.addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % version)
     def addSbtWeb(version: String): Setting[_] = sbt.addSbtPlugin("com.typesafe.sbt" % "sbt-web" % version)
