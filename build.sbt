@@ -7,6 +7,13 @@ sonatypeProfileName := "com.github.sbt.sbt-web-build-base" // See https://issues
 
 description := "Base build plugin for all sbt-web plugins"
 
+developers += Developer(
+  "playframework",
+  "The Play Framework Team",
+  "contact@playframework.com",
+  url("https://github.com/playframework")
+)
+
 libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % scriptedPluginVersion
 
 crossSbtVersions := Seq("1.9.0-RC3")
