@@ -9,7 +9,7 @@ object SbtWebBase extends AutoPlugin {
   override def requires = ScriptedPlugin
 
   object autoImport {
-    def addSbtJsEngine(version: String): Setting[_] = sbt.addSbtPlugin("com.typesafe.sbt" % "sbt-js-engine" % version)
+    def addSbtJsEngine(version: String): Setting[_] = sbt.addSbtPlugin("com.github.sbt" % "sbt-js-engine" % version)
     def addSbtWeb(version: String): Setting[_] = sbt.addSbtPlugin("com.github.sbt" % "sbt-web" % version)
   }
 

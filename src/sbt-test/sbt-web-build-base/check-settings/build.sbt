@@ -12,5 +12,5 @@ TaskKey[Unit]("testSettings") := {
   assertEquals(licenses.value.head._1, "Apache-2.0")
 }
 
-addSbtJsEngine("1.2.3")
+addSbtJsEngine("1.3.0-M1")
 addSbtWeb("1.5.0-M1")
