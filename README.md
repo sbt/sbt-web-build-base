@@ -6,10 +6,10 @@ This is a sbt plugin that sbt-web plugins can use to get their configuration.
 
 ## Usage
 
-Ensure that `project/build.properties` is configured for sbt minimum version of 1.9.0:
+Ensure that `project/build.properties` is configured for sbt minimum version of 1.9.5:
 
 ```
-sbt.version=1.9.0
+sbt.version=1.9.5
 ```
 
 Add the following to `project/plugins.sbt`:
