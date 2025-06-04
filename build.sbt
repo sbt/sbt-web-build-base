@@ -3,8 +3,6 @@ import buildinfo.BuildInfo._
 lazy val `sbt-web-build-base` = project in file(".")
 enablePlugins(SbtWebBase)
 
-sonatypeProfileName := "com.github.sbt.sbt-web-build-base" // See https://issues.sonatype.org/browse/OSSRH-77819#comment-1203625
-
 description := "Base build plugin for all sbt-web plugins"
 
 developers += Developer(
