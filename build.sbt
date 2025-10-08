@@ -38,4 +38,4 @@ Global / onLoad := (Global / onLoad).value.andThen { s =>
   s
 }
 
-addCommandAlias("validate", ";clean;test;^scripted")
+addCommandAlias("validate", ";clean;test;scripted")
