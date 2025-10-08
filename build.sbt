@@ -2,6 +2,7 @@ import buildinfo.BuildInfo._
 
 lazy val `sbt-web-build-base` = project in file(".")
 enablePlugins(SbtWebBase)
+enablePlugins(ScriptedPlugin)
 
 description := "Base build plugin for all sbt-web plugins"
 
@@ -12,9 +13,20 @@ developers += Developer(
   url("https://github.com/playframework")
 )
 
-libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % scriptedPluginVersion
+crossScalaVersions := Seq("2.12.20", "3.7.2")
+ThisBuild / (pluginCrossBuild / sbtVersion) := {
+  scalaBinaryVersion.value match {
+    case "2.12" => "1.11.7"
+    case _      => "2.0.0-RC6"
+  }
+}
 
-crossSbtVersions := Seq("1.9.7")
+scalacOptions := {
+  CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, major)) => Seq("-Xsource:3")
+    case _                => Seq.empty
+  }
+}
 
 // Customise sbt-dynver's behaviour to make it work with tags which aren't v-prefixed
 ThisBuild / dynverVTagPrefix := false
@@ -26,4 +38,4 @@ Global / onLoad := (Global / onLoad).value.andThen { s =>
   s
 }
 
-addCommandAlias("validate", ";clean;test;^scripted")
+addCommandAlias("validate", ";clean;test;scripted")

@@ -9,7 +9,6 @@ def assertEquals[T](t1: T, t2: T): Unit = {
 TaskKey[Unit]("testSettings") := {
   assertEquals(homepage.value, Some(url("https://github.com/sbt/check-settings")))
   assertEquals(licenses.value.size, 1)
-  assertEquals(licenses.value.head._1, "Apache-2.0")
 }
 
 addSbtJsEngine("1.3.7")

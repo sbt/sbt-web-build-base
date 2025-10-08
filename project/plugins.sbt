@@ -1,7 +1,5 @@
 import java.util.Locale
 
-libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % sbtVersion.value
-
 lazy val build = (project in file(".")).
   enablePlugins(BuildInfoPlugin).
   settings(

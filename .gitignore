@@ -3,3 +3,11 @@ target/
 .bsp/
 
 .sdkmanrc
+.vscode
+.DS_Store
+
+# Metals and Bloop
+.metals/
+.bloop/
+.scala-build/
+metals.sbt
