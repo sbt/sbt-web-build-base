@@ -28,11 +28,11 @@ object SbtWebBase extends AutoPlugin {
     // General settings
     organization := "com.github.sbt",
     homepage := Some(url(s"https://github.com/sbt/${name.value}")),
-    licenses := Seq("Apache-2.0" -> url("http://www.apache.org/licenses/LICENSE-2.0.html")),
+    licenses := Seq(License.Apache2),
     sbtPlugin := true,
     scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
 
-    crossSbtVersions := Seq("1.9.7"),
+    crossSbtVersions := Seq("1.11.7"),
 
     ScriptedPlugin.autoImport.scriptedLaunchOpts ++= Seq(
       "-XX:MaxMetaspaceSize=256m",

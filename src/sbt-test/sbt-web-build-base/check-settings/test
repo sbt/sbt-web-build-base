@@ -1,6 +1,6 @@
 > ^update
 
 # Make sure resolution was done for sbt 1.0
-$ exists target/scala-2.12/sbt-1.0/update/update_cache_2.12/output
+$ exists target/**/output
 
 > testSettings
