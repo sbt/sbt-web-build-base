@@ -13,8 +13,6 @@ developers += Developer(
   url("https://github.com/playframework")
 )
 
-//libraryDependencies += "org.scala-sbt" %% "scripted-plugin" % scriptedPluginVersion
-
 crossScalaVersions := Seq("2.12.20", "3.7.2")
 ThisBuild / (pluginCrossBuild / sbtVersion) := {
   scalaBinaryVersion.value match {
