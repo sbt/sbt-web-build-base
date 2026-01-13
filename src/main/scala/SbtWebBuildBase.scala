@@ -30,7 +30,7 @@ object SbtWebBase extends AutoPlugin {
     homepage := Some(url(s"https://github.com/sbt/${name.value}")),
     licenses := Seq(License.Apache2),
     sbtPlugin := true,
-    scalacOptions ++= Seq("-deprecation", "-feature", "-Xfatal-warnings"),
+    scalacOptions ++= Seq("-deprecation", "-feature", "-Werror"),
 
     crossSbtVersions := Seq("1.11.7"),
 
