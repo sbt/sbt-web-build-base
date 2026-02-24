@@ -13,11 +13,11 @@ developers += Developer(
   url("https://github.com/playframework")
 )
 
-crossScalaVersions := Seq("2.12.21", "3.7.4")
+crossScalaVersions := Seq("2.12.21", "3.8.2")
 ThisBuild / (pluginCrossBuild / sbtVersion) := {
   scalaBinaryVersion.value match {
-    case "2.12" => "1.11.7"
-    case _      => "2.0.0-RC6"
+    case "2.12" => "1.12.4"
+    case _      => "2.0.0-RC9"
   }
 }
 
