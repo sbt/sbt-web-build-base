@@ -1,10 +1,10 @@
 # Setup local git repo
-$ exec git init
+$ exec git init -b master
 # Need to configure name/email since on build server it's not set
 $ exec git config user.email sbt@example.com
 $ exec git config user.name sbt
 $ exec git add .
-$ exec git commit -m commit
+$ exec git -c commit.gpgsign=false commit -m commit
 
 # Setup remote git repo in target directory
 $ exec git init --bare target/remote

@@ -13,3 +13,7 @@ TaskKey[Unit]("testSettings") := {
 
 addSbtJsEngine("1.4.0-M4")
 addSbtWeb("1.6.0-M4")
+
+ThisBuild / scalaVersion := {
+  if (sbtVersion.value.startsWith("1.")) "2.12.21" else "3.9.0"
+}
