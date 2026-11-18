@@ -16,3 +16,7 @@ publish := {
 
 // Pass the file for the scripted test to write to so that we can check that it ran
 scriptedLaunchOpts += s"-Dscripted-file=${target.value / s"scripted-ran-${(pluginCrossBuild / sbtBinaryVersion).value}"}"
+
+ThisBuild / scalaVersion := {
+  if (sbtVersion.value.startsWith("1.")) "2.12.21" else "3.9.0"
+}

@@ -1,3 +1,5 @@
+ThisBuild / scalaVersion := "2.12.21"
+
 import buildinfo.BuildInfo._
 
 lazy val `sbt-web-build-base` = project in file(".")
@@ -13,11 +15,11 @@ developers += Developer(
   url("https://github.com/playframework")
 )
 
-crossScalaVersions := Seq("2.12.21", "3.8.4")
+crossScalaVersions := Seq("2.12.21", "3.9.0")
 ThisBuild / (pluginCrossBuild / sbtVersion) := {
   scalaBinaryVersion.value match {
     case "2.12" => "1.12.9"
-    case _      => "2.0.0"
+    case _      => "2.1.0"
   }
 }
 
